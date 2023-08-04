@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<main id="main" class="main">
+    <h3> Confirmation </h3>
+    <div class="container">
+
+ <h1>Application Confirmation</h1>
+  <p>Dear {{ applicant_name }},</p>
+  <p>Thank you for submitting your application form. We have received your information and appreciate your interest in [Company/Organization Name]. Our team is currently reviewing your application, and we will be in touch shortly with any further steps in the process.</p>
+  <p>If you have any additional questions or need further information, please feel free to reach out to us. We appreciate your patience and look forward to the possibility of working together.</p>
+  <p>Best regards,</p>
+  <p>{{ your_name }}</p>
+  <p>[Company/Organization Name]</p>
+    </div>
+</main>
+
+{% endblock %}

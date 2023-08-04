@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<main id="main" class="main">
+    <h3> Statement of the applicant </h3>
+     <form method="POST" action="{% url 'membership:statement_of_the_applicant' %}">
+            {% csrf_token %}
+    <div class="container">
+{{ context|crispy }}
+    </div>
+         <input type="submit" name="submit" value="next"   class="btn btn-primary next-button" Next />
+     </form>
+</main>
+{% endblock %}

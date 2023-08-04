@@ -1,0 +1,54 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+
+            .button-container .previous-button {
+                order: 1;
+            }
+
+            .button-container .next-button {
+                order: 2;
+            }
+
+</style>
+
+<main id="main" class="main">
+    <div class="container">
+    <h3> Please give a brief description on current Quality-related responsibilities(indicate if there are additional responsibilities since initial application)</h3>
+        <form method="POST" action="{% url 'membership:information_on_present_position' %}">
+            {% csrf_token %}
+    <div class="row">
+        {{ context.description_on_current_quality|as_crispy_field }}
+    </div>
+
+    <div class="row">
+        {{ context.any_other_specify|as_crispy_field }}
+    </div>
+    <h4> Length of tenure on present position</h4>
+    <div class="row">
+        <div class="col-6">
+            {{ context.years|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            {{ context.months|as_crispy_field }}
+        </div>
+    </div>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'membership:specialized_area' %}" class="btn btn-primary previous-button">Previous</a>
+        <input type="submit" name="submit" value="next"   class="btn btn-primary next-button" Next />
+
+    </div>
+
+    </form>
+
+</main>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+ <style>
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+
+            .button-container .previous-button {
+                order: 1;
+            }
+
+            .button-container .next-button {
+                order: 2;
+            }
+
+</style>
+<main id="main" class="main">
+    <h3> Other management system trainings</h3>
+    <form method="POST" action="{% url 'membership:other_management_system_trainings' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            {{ context.Course|as_crispy_field }}
+        </div>
+        <div class="row">
+            {{ context.Course_duration_in_years|as_crispy_field }}
+        </div>
+        <div class="row">
+            {{ context.Organization|as_crispy_field }}
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ context.Certificate_awarded|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ context.certificate_file|as_crispy_field }}
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'membership:courses_related_to_quality_management' %}" class="btn btn-primary  previous-button">Previous</a>
+        <input type="submit" name="submit" value="next"   class="btn btn-primary next-button" Next />
+    </div>
+    </form>
+</main>
+{% endblock %}

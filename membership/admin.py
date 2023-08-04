@@ -1,0 +1,15 @@
+from django.contrib import admin
+from .models import Registration_type,Member_type,Applicant_details,Academic_qualification,Specialized_area,Information_on_present_position,Length_of_tenure,Courses_related_to_quality_management,Other_management_system_trainings,Code_of_conduct,Statement_of_the_applicant,Membership_applications
+# Register your models here.
+admin.site.register(Registration_type)
+admin.site.register(Member_type)
+admin.site.register(Applicant_details)
+admin.site.register(Academic_qualification)
+admin.site.register(Specialized_area)
+admin.site.register(Information_on_present_position)
+admin.site.register(Length_of_tenure)
+admin.site.register(Courses_related_to_quality_management)
+admin.site.register(Other_management_system_trainings)
+admin.site.register(Code_of_conduct)
+admin.site.register(Statement_of_the_applicant)
+admin.site.register(Membership_applications)

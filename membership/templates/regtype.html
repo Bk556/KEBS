@@ -1,0 +1,30 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+            .button-container {
+                display: bottom-right;
+                justify-content: space-between;
+                margin-top: 20px;
+
+
+</style>
+<main id="main" class="main">
+    <h3> Type of registration </h3>
+    <div class="container">
+        <form method="post" action="{% url 'membership:regtype' %}">
+            {% csrf_token %}
+    {{ context|crispy }}
+    </div>
+<div class="button-container">
+
+    <input type="submit" name="submit" value="next" class="btn btn-primary" />
+
+       </div>
+    </form>
+
+</main>
+
+{% endblock %}

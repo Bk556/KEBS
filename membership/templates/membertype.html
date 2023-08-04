@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+
+            .button-container .previous-button {
+                order: 1;
+            }
+
+            .button-container .next-button {
+                order: 2;
+            }
+
+    </style>
+<main id="main" class="main">
+    <h3> Member type </h3>
+    <div class="container">
+         <form method="POST" action="{% url 'membership:membertype' %}">
+            {% csrf_token %}
+{{ context|crispy }}
+    </div>
+    <div class="button-container">
+        <a href="{% url 'membership:regtype' %}" class="btn btn-primary previous-button">Previous</a>
+        <input type="submit" name="submit" value="next"   class="btn btn-primary next-button" Next />
+    </div>
+
+         </form>
+
+</main>
+{% endblock %}

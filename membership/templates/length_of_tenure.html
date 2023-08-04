@@ -1,0 +1,47 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+
+            .button-container .previous-button {
+                order: 1;
+            }
+
+            .button-container .next-button {
+                order: 2;
+            }
+
+</style>
+<main id="main" class="main">
+    <h3> Length of Tenure </h3>
+    <div class="container">
+        <form method="POST" action="{% url 'membership:length_of_tenure' %}">
+            {% csrf_token %}
+ <div class="row">
+     {{ context.Name_of_organization|as_crispy_field }}
+ </div>
+
+    <div class="row">
+        <div class="col-6">
+            {{ context.date_from|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            {{ context.date_to|as_crispy_field }}
+        </div>
+    </div>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'membership:information_on_present_position' %}" class="btn btn-primary previous-button">Previous</a>
+        <input type="submit" name="submit" value="next"   class="btn btn-primary next-button" Next />
+    </div>
+    </form>
+
+</main>
+{% endblock %}
